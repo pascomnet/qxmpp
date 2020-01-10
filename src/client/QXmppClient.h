@@ -281,8 +281,9 @@ public Q_SLOTS:
     void connectToServer(const QString &jid,
                          const QString &password);
     void disconnectFromServer();
-    bool sendPacket(const QXmppStanza &);
-    void sendMessage(const QString &bareJid, const QString &message);
+    void abortConnection();
+    bool sendPacket(const QXmppStanza&);
+    void sendMessage(const QString& bareJid, const QString& message);
 
 private Q_SLOTS:
     void _q_elementReceived(const QDomElement &element, bool &handled);

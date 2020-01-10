@@ -308,6 +308,19 @@ void QXmppClient::disconnectFromServer()
     d->stream->disconnectFromHost();
 }
 
+
+void QXmppClient::abortConnection()
+{
+    // cancel reconnection
+    d->reconnectionTimer->stop();
+
+    d->clientPresence.setType(QXmppPresence::Unavailable);
+    d->clientPresence.setStatusText("Logged out");
+
+    d->stream->abort();
+}
+
+
 /// Returns true if the client has authenticated with the XMPP server.
 
 bool QXmppClient::isAuthenticated() const

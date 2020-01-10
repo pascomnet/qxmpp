@@ -3,3 +3,4 @@ CMakeLists.txt.*
 build*
 .kdev4/
 *.kdev4
+.pcversion

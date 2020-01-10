@@ -273,6 +273,13 @@ void QXmppOutgoingClient::disconnectFromHost()
     QXmppStream::disconnectFromHost();
 }
 
+void QXmppOutgoingClient::abort()
+{
+    if (socket()) {
+        socket()->abort();
+    }
+}
+
 void QXmppOutgoingClient::_q_dnsLookupFinished()
 {
     if (d->dns.error() == QDnsLookup::NoError &&

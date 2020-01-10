@@ -53,6 +53,7 @@ public:
     ~QXmppOutgoingClient() override;
 
     void connectToHost();
+    void abort();
     bool isAuthenticated() const;
     bool isConnected() const override;
     bool isClientStateIndicationEnabled() const;

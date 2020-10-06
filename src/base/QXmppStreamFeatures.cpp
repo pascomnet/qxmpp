@@ -276,7 +276,9 @@ void QXmppStreamFeatures::parse(const QDomElement &element)
     d->sessionMode = readFeature(element, "session", ns_session);
     d->nonSaslAuthMode = readFeature(element, "auth", ns_authFeature);
     d->tlsMode = readFeature(element, "starttls", ns_tls);
-    d->streamManagementMode = readFeature(element, "sm", ns_stream_management);
+    // CL-1588 Permanently disable Stream Management
+    d->streamManagementMode = QXmppStreamFeatures::Disabled;
+    // d->streamManagementMode = readFeature(element, "sm", ns_stream_management);
     d->csiMode = readFeature(element, "csi", ns_csi);
     d->registerMode = readFeature(element, "register", ns_register_feature);
     d->preApprovedSubscriptionsSupported = readBooleanFeature(element, QStringLiteral("sub"), ns_pre_approval);
